@@ -8,4 +8,6 @@ an os for when you want to overcomplicate things
     * if you are on linux, you want to chmod run.sh to a `+x`, otherwise it will not run
 4. login as `root` using the password `rootpass`
 5. use `adduser` to setup a new user
+6. `exit` then rerun the run file
+7. login as you!
 6. enjoy
