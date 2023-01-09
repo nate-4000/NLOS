@@ -5,6 +5,10 @@ NLOS shell.
 import os
 import filesys
 import login
+import gas
+
+tn = gas.get("sys/names.json")
+
 
 abouttext = """
 NLOS is a operating system written in Python 3, and should be wrapped by the Linux kernel.
@@ -67,7 +71,7 @@ def open(authuser):
             try:
                 print(filesys.cat(args))
             except:
-                print("file not exist")
+                print(tn["404"])
         elif incomm.startswith("mkdir "):
             args = incomm.removeprefix("mkdir ")
             filesys.mkdir(args)
@@ -80,17 +84,17 @@ def open(authuser):
         elif incomm.startswith("rm "):
             args = incomm.removeprefix("rm ")
             if filesys.cwd.endswith("sys/") or filesys.cwd.endswith("sys"):
-                print("operation not allowed")
+                print(tn["no"])
             else:
                 try:
                     os.remove(args)
                 except:
-                    print("file not exist")
+                    print(tn["404"])
         elif incomm.startswith("rmdir "):
             args = incomm.removeprefix("rmdir ")
             try:
                 os.rmdir(args)
             except:
-                print("file not exist")
+                print(tn["404"])
         else:
-            print("unknown command")
+            print(tn["notcomm"])

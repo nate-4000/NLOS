@@ -6,18 +6,13 @@ import json
 import hashlib
 import filesys
 import os
+from gas import get, store
 
 trdir = filesys.trdir
 
 hashpwd = lambda a : int(hashlib.md5(a.encode('utf-8')).hexdigest(), 16)
 
-def get(fn):
-  with open(fn) as file:
-    return json.load(file)
-
-def store(fn, things):
-  with open(fn, "w") as file:
-    json.dump(things, file)
+tn = get("sys/names.json")
 
 def tupdusrs():
     global usrs
@@ -40,11 +35,11 @@ def rdexec(func, args=[]):
 
 def login():
     while True:
-        tusr = input("user: ")
-        tpass = input("password: ")
+        tusr = input(tn["uask"])
+        tpass = input(tn["pask"])
         atlusr = chkusr(tusr, tpass)
         if atlusr is None:
-            print("incorrect username or password")
+            print(tn["wronglogin"])
         else:
             return atlusr
 
@@ -61,9 +56,9 @@ def chkusr(tusr, tpwd):
         return atlusr
 
 def iaddusr():
-    print("user setup wizard")
-    taddusr = input("username: ")
-    taddpwd = input("password: ")
+    print(tn["usw"])
+    taddusr = input(tn["uask"])
+    taddpwd = input(tn["pask"])
     addusr(taddusr, hashpwd(taddpwd))
 
 def addusr(usr, pwd):

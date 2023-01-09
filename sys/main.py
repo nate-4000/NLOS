@@ -1,7 +1,11 @@
 """
 NLOS main kernel, running this will open the system
 """
-print("initialising system")
+
+import gas
+tn = gas.get("sys/names.json")
+
+print(tn["sysinit"])
 
 import os
 

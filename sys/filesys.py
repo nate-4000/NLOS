@@ -1,7 +1,11 @@
 """
 NLOS file system handler.
 """
+
 import os
+import gas
+
+tn = gas.get("sys/names.json")
 
 def up():
     os.chdir("..")
@@ -24,14 +28,14 @@ def cd(path):
         if path == "/":
             return
         lpath = path.split("/")
-        print("attempting cd tree " + str(lpath))
+        # print("attempting cd tree " + str(lpath))
         for t in lpath:
             if t == '':
                 continue
             try:
                 cd(t)
             except:
-                print("unable to open directory " + t)
+                print(tn["cddir404"] % t)
     else:
         if os.path.exists(path):
             try:
@@ -40,16 +44,19 @@ def cd(path):
                 cwd = cwd.replace('\\',"/")
                 cwd = cwd.removeprefix(trdir)
             except: # you lied to me
-                print("directory is file")
+                print(tn["dirisfile"])
         else:
-            print("directory not found")
+            print(tn["dir404"])
 
 def ls():
     return os.listdir()
 
 def cat(fn):
-    with open(fn) as f:
-        return f.read()
+    try:
+        with open(fn) as f:
+            return f.read()
+    except FileNotFoundError:
+        print(tn["404"])
 
 def mkdir(dn):
     os.makedirs(dn)
