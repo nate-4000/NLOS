@@ -9,5 +9,6 @@
   "mkfile": "Makes a file. Requires ultra-mega-super-galactic root permissions to create any useless files in the system directory",
   "adduser": "The User Setup Wizard. Allows you to setup a new user.",
   "toplevel": "Gets the OS wrapper. Probably useful once I implement that toplevel execution thing.",
-  "whoami": "Tells who is currently using this session."
+  "whoami": "Tells who is currently using this session.",
+  "editor": "The NLOS file editor. Like ed, but with some vim mixed in. Not fully implemented yet."
 }

@@ -12,5 +12,5 @@
   "wronglogin": "incorrect username or password",
   "man404": "unknown man page: %s",
   "manintro": "manual page for %s: ",
-  "fileexists":  "file %s already exists"
+  "fileexists": "file %s already exists"
 }

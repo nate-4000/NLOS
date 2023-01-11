@@ -7,6 +7,7 @@ import filesys
 import login
 import gas
 import man
+import editor
 
 tn = gas.get("sys/names.json")
 
@@ -35,7 +36,8 @@ comm = [
 "rmdir :",
 "cat :",
 "man :",
-"mkfile :"
+"mkfile :",
+"edit :"
 ]
 
 
@@ -106,5 +108,8 @@ def open(authuser):
         elif incomm.startswith("mkfile "):
             args = incomm.removeprefix("mkfile ")
             filesys.mkf(args)
+        elif incomm.startswith("edit "):
+            args = incomm.removeprefix("edit ")
+            editor.edit(args)
         else:
             print(tn["notcomm"])
