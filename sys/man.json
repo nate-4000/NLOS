@@ -1,0 +1,13 @@
+{
+  "cat": "Puts the entire contents of a file to the screen.",
+  "eval": "An expression evaluator, prints the expression's return value.",
+  "man": "The manual for commands. If you can see this message, you either know cat or manual syntax.",
+  "rm": "Removes a file. Requires ultra-mega-super-galactic root permissions to delete any system files.",
+  "rmdir": "Removes an empty directory. Cannot remove directories with file contents for safety reasons.",
+  "help": "Lists valid commands. If a command requires arguments, the command name will be proceeded with \":\".",
+  "mkdir": "Creates a directory.",
+  "mkfile": "Makes a file. Requires ultra-mega-super-galactic root permissions to create any useless files in the system directory",
+  "adduser": "The User Setup Wizard. Allows you to setup a new user.",
+  "toplevel": "Gets the OS wrapper. Probably useful once I implement that toplevel execution thing.",
+  "whoami": "Tells who is currently using this session."
+}

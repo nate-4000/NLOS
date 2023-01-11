@@ -15,14 +15,13 @@ trdir = os.getcwd().replace('\\',"/")
 
 cwd = rdir
 
-def uflop(fn):
+def rdflop(fn):
     f = open(trdir + fn)
     return f
 
 def cd(path):
     global cwd
     if path.startswith("/"):
-        # raise NotImplementedError
         os.chdir(trdir)
         cwd = "/"
         if path == "/":
@@ -46,7 +45,7 @@ def cd(path):
             except: # you lied to me
                 print(tn["dirisfile"])
         else:
-            print(tn["dir404"])
+            print(tn["cddir404"] % path)
 
 def ls():
     return os.listdir()
@@ -59,4 +58,14 @@ def cat(fn):
         print(tn["404"])
 
 def mkdir(dn):
-    os.makedirs(dn)
+    os.makedirs(dn, exist_ok = True)
+
+def mkf(name):
+    if cwd.endswith("sys") or cwd.endswith("sys/"):
+        print(tn["no"])
+        return
+    try:
+        f = open(name, "x")
+        f.close()
+    except:
+        print(tn["fileexists"] % name)

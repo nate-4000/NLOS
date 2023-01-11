@@ -3,11 +3,14 @@
   "cddir404": "unable to open directory %s",
   "dir404": "directory not found",
   "dirisfile": "directory is file",
-  "no": "operation not allowed",
+  "no": "operation not permit",
   "notcomm": "unknown command",
   "pask": "password: ",
   "sysinit": "initializing system",
   "uask": "user: ",
   "usw": "user setup wizard",
-  "wronglogin": "incorrect username or password"
+  "wronglogin": "incorrect username or password",
+  "man404": "unknown man page: %s",
+  "manintro": "manual page for %s: ",
+  "fileexists":  "file %s already exists"
 }

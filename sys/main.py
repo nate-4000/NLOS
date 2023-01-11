@@ -30,4 +30,5 @@ def run():
     print(welcometext)
     shell.open(user)
 
-run()
+if __name__ == "__main__":
+    run()

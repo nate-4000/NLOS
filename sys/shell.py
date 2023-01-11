@@ -6,13 +6,14 @@ import os
 import filesys
 import login
 import gas
+import man
 
 tn = gas.get("sys/names.json")
 
 
 abouttext = """
 NLOS is a operating system written in Python 3, and should be wrapped by the Linux kernel.
-Commands are implemented weirdly, don't ask.
+Commands are implemented as an if/else hell.
 It will run if you run main.py... just try not to do any funny things.
 todo: The system does run whatever executables it's wrapper can run... the wrapper can be found using the command "toplevel".
 """
@@ -22,16 +23,19 @@ comm = [
 "toplevel",
 "whoami",
 "exit",
-"cd",
+"cd :",
 "whereami",
 "tlwai",
 "ls",
 "adduser",
 "about",
-"mkdir",
-"eval",
-"rm",
-"rmdir"
+"mkdir :",
+"eval :",
+"rm :",
+"rmdir :",
+"cat :",
+"man :",
+"mkfile :"
 ]
 
 
@@ -96,5 +100,11 @@ def open(authuser):
                 os.rmdir(args)
             except:
                 print(tn["404"])
+        elif incomm.startswith("man "):
+            args = incomm.removeprefix("man ")
+            man.getpage(args)
+        elif incomm.startswith("mkfile "):
+            args = incomm.removeprefix("mkfile ")
+            filesys.mkf(args)
         else:
             print(tn["notcomm"])
