@@ -6,9 +6,11 @@
   "rmdir": "Removes an empty directory. Cannot remove directories with file contents for safety reasons.",
   "help": "Lists valid commands. If a command requires arguments, the command name will be proceeded with \":\".",
   "mkdir": "Creates a directory.",
-  "mkfile": "Makes a file. Requires ultra-mega-super-galactic root permissions to create any useless files in the system directory",
+  "mkfile": "Makes a file. Requires ultra-mega-super-galactic root permissions to create any useless files in the system directory.",
   "adduser": "The User Setup Wizard. Allows you to setup a new user.",
-  "toplevel": "Gets the OS wrapper. Probably useful once I implement that toplevel execution thing.",
+  "toplevel": "Gets the OS wrapper. Implemented because I was about to be lazy and decided to not.",
   "whoami": "Tells who is currently using this session.",
-  "editor": "The NLOS file editor. Like ed, but with some vim mixed in. Not fully implemented yet."
+  "editor": "The NLOS file editor. Like ed, but with some vim mixed in. Not completely finished yet.",
+  "run": "The handler for the NLOS program standard. Takes the program name as argument. Basically just the \".\" command in Linux. See \"programs\" for info on the standard.",
+  "programs": "The NLOS program standard is very simple. The main running function in NLOS when a program is executed is \"nlosrun()\", with no arguments at all.\nAll arguments have to be added by user-input at runtime.\nThe ability to have runtime aguments will come later in the development process."
 }

@@ -8,6 +8,7 @@ import filesys
 
 tn = gas.get("sys/names.json")
 
+
 def intput(text):
     ex = False
     while not ex:
@@ -20,7 +21,6 @@ def intput(text):
     return d
 
 
-
 def edit(filename):
     try:
         x = open(filename, "a")
@@ -31,7 +31,7 @@ def edit(filename):
     d = filesys.cat(filename).splitlines()
     i = 0
     for m in d:
-        i+=1
+        i += 1
         print(i, m)
     while not ex:
         stdin = input()
@@ -48,7 +48,7 @@ def edit(filename):
             d = filesys.cat(filename).splitlines()
             i = 0
             for m in d:
-                i+=1
+                i += 1
                 print(i, m)
         else:
             x.write(stdin + "\n")

@@ -12,5 +12,7 @@
   "wronglogin": "incorrect username or password",
   "man404": "unknown man page: %s",
   "manintro": "manual page for %s: ",
-  "fileexists": "file %s already exists"
+  "fileexists": "file %s already exists",
+  "prog404": "program %s cannot be accessed because of exception: \n%s",
+  "prognot": "program %s does not seem to be coded for NLOS"
 }

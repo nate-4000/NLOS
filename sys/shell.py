@@ -8,36 +8,38 @@ import login
 import gas
 import man
 import editor
+import runprg
 
 tn = gas.get("sys/names.json")
 
 
 abouttext = """
 NLOS is a operating system written in Python 3, and should be wrapped by the Linux kernel.
-Commands are implemented as an if/else hell.
+If you try to mess with the command system, you will go to if/else hell.
 It will run if you run main.py... just try not to do any funny things.
-todo: The system does run whatever executables it's wrapper can run... the wrapper can be found using the command "toplevel".
+NLOS has its own program standard: type "man programs" for info on how to use it.
 """
 
 comm = [
-"help",
-"toplevel",
-"whoami",
-"exit",
-"cd :",
-"whereami",
-"tlwai",
-"ls",
-"adduser",
-"about",
-"mkdir :",
-"eval :",
-"rm :",
-"rmdir :",
-"cat :",
-"man :",
-"mkfile :",
-"edit :"
+    "help",
+    "toplevel",
+    "whoami",
+    "exit",
+    "cd :",
+    "whereami",
+    "tlwai",
+    "ls",
+    "adduser",
+    "about",
+    "mkdir :",
+    "eval :",
+    "rm :",
+    "rmdir :",
+    "cat :",
+    "man :",
+    "mkfile :",
+    "edit :",
+    "run :"
 ]
 
 
@@ -50,7 +52,7 @@ def open(authuser):
         if incomm == "help":
             print("supported commands: ")
             for x in sorted(comm):
-                print(" "*4+x)
+                print(" " * 4 + x)
         elif incomm == "toplevel":
             print(os.name)
         elif incomm == "whoami":
@@ -111,5 +113,8 @@ def open(authuser):
         elif incomm.startswith("edit "):
             args = incomm.removeprefix("edit ")
             editor.edit(args)
+        elif incomm.startswith("run "):
+            args = incomm.removeprefix("run ")
+            runprg.run(args, os.getcwd())
         else:
             print(tn["notcomm"])

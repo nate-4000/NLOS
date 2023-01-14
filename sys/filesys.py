@@ -7,24 +7,29 @@ import gas
 
 tn = gas.get("sys/names.json")
 
+
 def up():
     os.chdir("..")
 
+
 rdir = "/"
-trdir = os.getcwd().replace('\\',"/")
+trdir = os.getcwd().replace("\\", "/")
 
 cwd = rdir
 
+
 def repline(file_name, line_num, text):
-    lines = open(file_name, 'r').readlines()
+    lines = open(file_name, "r").readlines()
     lines[line_num] = text
-    out = open(file_name, 'w')
+    out = open(file_name, "w")
     out.writelines(lines)
     out.close()
+
 
 def rdflop(fn):
     f = open(trdir + fn)
     return f
+
 
 def cd(path):
     global cwd
@@ -36,7 +41,7 @@ def cd(path):
         lpath = path.split("/")
         # print("attempting cd tree " + str(lpath))
         for t in lpath:
-            if t == '':
+            if t == "":
                 continue
             try:
                 cd(t)
@@ -47,15 +52,17 @@ def cd(path):
             try:
                 os.chdir(path)
                 cwd = os.getcwd()
-                cwd = cwd.replace('\\',"/")
+                cwd = cwd.replace("\\", "/")
                 cwd = cwd.removeprefix(trdir)
-            except: # you lied to me
+            except:  # you lied to me
                 print(tn["dirisfile"])
         else:
             print(tn["cddir404"] % path)
 
+
 def ls():
     return os.listdir()
+
 
 def cat(fn):
     try:
@@ -64,8 +71,10 @@ def cat(fn):
     except FileNotFoundError:
         print(tn["404"])
 
+
 def mkdir(dn):
-    os.makedirs(dn, exist_ok = True)
+    os.makedirs(dn, exist_ok=True)
+
 
 def mkf(name):
     if cwd.endswith("sys") or cwd.endswith("sys/"):
