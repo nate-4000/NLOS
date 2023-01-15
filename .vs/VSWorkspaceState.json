@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\sys"
   ],
-  "SelectedNode": "\\sys\\shell.py",
+  "SelectedNode": "\\sys\\main.py",
   "PreviewInSolutionExplorer": false
 }
