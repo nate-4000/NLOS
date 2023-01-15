@@ -17,10 +17,12 @@ def run(progname, dir):
     os.chdir(dir)
     try:
         prog = __import__(progname)
-    except BaseException as err:
+    except Exception as err:
         print(tn["prog404"] % (progname, str(err)))
         return
     try:
         prog.nlosrun()
     except AttributeError:
         print(tn["prognot"] % progname)
+    except BaseException as err:
+        print(tn["progerr"] % (progname, str(err.__class__)))

@@ -1,0 +1,2 @@
+def nlosrun():
+    raise SyntaxError
