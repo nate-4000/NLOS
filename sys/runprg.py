@@ -9,7 +9,7 @@ import sys
 
 
 tn = gas.get("sys/names.json")
-
+rtc = gas.get("sys/rct.json")
 
 def run(progname, dir):
     # raise NotImplementedError
@@ -24,11 +24,15 @@ def run(progname, dir):
         rc = prog.nlosrun()
         sys.path.remove(dir)
         del prog
-        #if rc == None:
-        #   print("warning: program %s did not return a response code")
+        if rc == None:
+            print(tn["progabr"] % progname)
+        elif str(rc) in rtc.keys():
+            print(tn["progcde"] % (progname, rc, rtc[str(rc)]))
+        elif type(rc) is int and rc < 256:
+            print(tn["progcodeinvalid"] % (progname, rc))
+        else:
+            print(tn["pcdebad"] % progname)
     except AttributeError:
         print(tn["prognot"] % progname)
     except BaseException as err:
         print(tn["progerr"] % (progname, str(err.__class__)))
-    except SystemExit:
-        print(tn["progabr"] % progname)

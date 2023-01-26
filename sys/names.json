@@ -16,5 +16,8 @@
   "prog404": "program %s cannot be accessed because of exception: \n%s",
   "prognot": "program %s does not seem to be coded for NLOS",
   "progerr": "program %s had an error:\n%s",
-  "progabr": "program %s ended abruptly, exit() was most likely called"
+  "progabr": "warning, program %s returned no response code",
+  "progcde": "program %s returned response code %x, rct: \"%s\"",
+  "progcodeinvalid": "program %s returned invalid response code %x",
+  "pcdebad": "program %s returned an invalid reponse code type"
 }
