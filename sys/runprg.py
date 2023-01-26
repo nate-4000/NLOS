@@ -23,6 +23,7 @@ def run(progname, dir):
     try:
         prog.nlosrun()
         sys.path.remove(dir)
+        del prog
     except AttributeError:
         print(tn["prognot"] % progname)
     except BaseException as err:

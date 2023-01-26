@@ -9,10 +9,12 @@ def nlosrun():
             scinput = input("Input equation: ")
             if scinput == "?exit" or scinput == "?e":
                 pexit = True
+                continue
             if scinput == "":
                 pass
             if scinput == "exit":
                 print("Type ?e or ?exit to exit")
+                continue
             scoutput = eval(scinput)
             ans = scoutput
             if isinstance(scoutput, (int, float)) and not isinstance(scoutput, bool):
@@ -23,6 +25,7 @@ def nlosrun():
             print("?SynErr")
         except NameError:
             print("?SynErr")
+        except ValueError:
         except BaseException as err:
             try:
                 print(f"Could not eval\n{err=}\n{type(err)=}")
