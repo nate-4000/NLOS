@@ -21,9 +21,11 @@ def run(progname, dir):
         print(tn["prog404"] % (progname, str(err)))
         return
     try:
-        prog.nlosrun()
+        rc = prog.nlosrun()
         sys.path.remove(dir)
         del prog
+        #if rc == None:
+        #   print("warning: program %s did not return a response code")
     except AttributeError:
         print(tn["prognot"] % progname)
     except BaseException as err:

@@ -26,6 +26,7 @@ def nlosrun():
         except NameError:
             print("?SynErr")
         except ValueError:
+            return
         except BaseException as err:
             try:
                 print(f"Could not eval\n{err=}\n{type(err)=}")
