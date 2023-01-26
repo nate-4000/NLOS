@@ -30,3 +30,5 @@ def run(progname, dir):
         print(tn["prognot"] % progname)
     except BaseException as err:
         print(tn["progerr"] % (progname, str(err.__class__)))
+    except SystemExit:
+        print(tn["progabr"] % progname)

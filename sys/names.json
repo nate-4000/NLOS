@@ -15,5 +15,6 @@
   "fileexists": "file %s already exists",
   "prog404": "program %s cannot be accessed because of exception: \n%s",
   "prognot": "program %s does not seem to be coded for NLOS",
-  "progerr": "program %s had an error:\n%s"
+  "progerr": "program %s had an error:\n%s",
+  "progabr": "program %s ended abruptly, exit() was most likely called"
 }
