@@ -1,6 +1,7 @@
 """
 NLOS editor.
 Attempts to be a mix of vi and ed.
+Rename to vied?
 """
 
 import gas
