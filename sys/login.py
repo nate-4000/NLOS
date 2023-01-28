@@ -28,8 +28,9 @@ def rdexec(func, args=[]):
     tempdir = os.getcwd()
     global usrs
     os.chdir(trdir)
-    func(*args)
+    r = func(*args)
     os.chdir(tempdir)
+    return r
 
 
 # for x in usrs["users"]:

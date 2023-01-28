@@ -42,6 +42,21 @@ comm = [
     "run :"
 ]
 
+def runbat(inlist: list):
+    for comm in inlist:
+        match comm.strip().split(" "):
+            case ['print', *out]:
+                for t in out:
+                    print(t, end=" ")
+                print()
+            case _:
+                print("warning, unknown command \"%s\"" % comm)
+
+def runscr(filename):
+    raise NotImplementedError
+    with open(filename, "r") as prg:
+        lprg = prg.readlines()
+    runbat(lprg)
 
 def open(authuser):
     exit = False

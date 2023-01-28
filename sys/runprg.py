@@ -12,7 +12,6 @@ tn = gas.get("sys/names.json")
 rtc = gas.get("sys/rct.json")
 
 def run(progname, dir):
-    # raise NotImplementedError
     sys.path.insert(0, dir)
     os.chdir(dir)
     try:
