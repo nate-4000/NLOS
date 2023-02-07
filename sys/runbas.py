@@ -2,6 +2,8 @@
 NBasic interpreter.
 
 Basically asm, but not as cool.
+
+Add a compiler later?
 """
 
 def runbas(code):
@@ -27,7 +29,7 @@ def runbas(code):
                 print("Error: Invalid variable declaration")
                 return
             vars[line[1]] = None
-        elif line[0] == "io":
+        elif line[0] == "iov":
             if len(line) < 2:
                 print("Error: Invalid IO command")
                 return
@@ -55,7 +57,7 @@ def runbas(code):
             except ValueError as e:
                 print(f"Error: {e}")
                 return
-        elif line[0] == "in":
+        elif line[0] == "inn":
             if len(line) < 2:
                 print("Error: Invalid input command")
                 return
@@ -141,6 +143,50 @@ def runbas(code):
                 print(f"Error: Undefined variable '{line[1]}'")
                 return
             vars[line[1]] += 1
+        elif line[0] == "vad":
+            if len(line) < 3:
+                print("Error: Invalid vad command")
+                return
+            if line[1] not in vars:
+                print(f"Error: Undefined variable '{line[1]}'")
+                return
+            if line[2] not in vars:
+                print(f"Error: Undefined variable '{line[2]}'")
+                return
+            vars[line[1]] += vars[line[2]]
+        elif line[0] == "vsb":
+            if len(line) < 3:
+                print("Error: Invalid vsb command")
+                return
+            if line[1] not in vars:
+                print(f"Error: Undefined variable '{line[1]}'")
+                return
+            if line[2] not in vars:
+                print(f"Error: Undefined variable '{line[2]}'")
+                return
+            vars[line[1]] -= vars[line[2]]
+        elif line[0] == "vml":
+            if len(line) < 3:
+                print("Error: Invalid vml command")
+                return
+            if line[1] not in vars:
+                print(f"Error: Undefined variable '{line[1]}'")
+                return
+            if line[2] not in vars:
+                print(f"Error: Undefined variable '{line[2]}'")
+                return
+            vars[line[1]] *= vars[line[2]]
+        elif line[0] == "vdi":
+            if len(line) < 3:
+                print("Error: Invalid vdi command")
+                return
+            if line[1] not in vars:
+                print(f"Error: Undefined variable '{line[1]}'")
+                return
+            if line[2] not in vars:
+                print(f"Error: Undefined variable '{line[2]}'")
+                return
+            vars[line[1]] //= vars[line[2]]
         elif line[0] == "end":
             return
         i += 1
