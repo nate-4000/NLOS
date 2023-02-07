@@ -3,7 +3,7 @@ NBasic interpreter.
 
 Basically asm, but not as cool.
 
-Add a compiler later?
+Add a bytecode compiler later?
 """
 
 def runbas(code):
@@ -18,6 +18,15 @@ def runbas(code):
         if line[0] == "jmp":
             try:
                 jump_to = int(line[1]) - 1
+                if jump_to < 0 or jump_to >= len(code):
+                    raise ValueError("Jump target out of range")
+                i = jump_to
+            except ValueError as e:
+                print(f"Error: {e}")
+                return
+        if line[0] == "vjm":
+            try:
+                jump_to = vars[line[1]] - 1
                 if jump_to < 0 or jump_to >= len(code):
                     raise ValueError("Jump target out of range")
                 i = jump_to
