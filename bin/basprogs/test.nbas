@@ -1,0 +1,8 @@
+var x
+var y
+set x 2
+set y 3
+vml x y
+vml y x
+iov x
+iov y

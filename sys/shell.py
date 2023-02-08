@@ -9,6 +9,7 @@ import gas
 import man
 import editor
 import runprg
+import runbas
 
 tn = gas.get("sys/names.json")
 
@@ -131,5 +132,11 @@ def open(authuser):
         elif incomm.startswith("run "):
             args = incomm.removeprefix("run ")
             runprg.run(args, os.getcwd())
+        elif incomm.startswith("nbas "):
+            args = incomm.removeprefix("nbas ")
+            if args.endswith(".nbas"):
+                runbas.run(args)
+            else:
+                print(tn["no"])
         else:
             print(tn["notcomm"])

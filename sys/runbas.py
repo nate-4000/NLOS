@@ -6,6 +6,10 @@ Basically asm, but not as cool.
 Add a bytecode compiler later?
 """
 
+import gas
+
+tn = gas.get("sys/names.json")
+
 def runbas(code):
     code = code.split("\n")
     vars = {}
@@ -199,6 +203,18 @@ def runbas(code):
         elif line[0] == "end":
             return
         i += 1
+
+
+
+def run(f):
+    try:
+        fi = open(f, "r")
+    except FileNotFoundError:
+        print(tn[404])
+        return
+    code = fi.readlines()
+    return runbas(code)
+
 
 if __name__ == "__main__":
     print("Enter/Paste your content. Ctrl-D or Ctrl-Z ( windows ) to save it.")
