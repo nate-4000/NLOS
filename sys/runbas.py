@@ -213,7 +213,7 @@ def run(f):
         print(tn[404])
         return
     for i in fi.readlines():
-        code += i
+        code += i + "\n"
     return runbas(code)
 
 
