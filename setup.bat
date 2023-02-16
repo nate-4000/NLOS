@@ -1,0 +1,1 @@
+cls && python .\sys\setup.py
