@@ -1,0 +1,8 @@
+jmp 3
+ios never output
+set i 0
+set e 10
+iov i
+inc i
+jif i < e 5
+ios ended
