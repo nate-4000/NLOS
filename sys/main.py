@@ -30,15 +30,6 @@ def run():
     print(welcometext)
     shell.open(user)
     print("exiting")
-    # goodnight moon
-    # why did i put this here again?
-    del gas
-    del tn
-    del os
-    del cls
-    del login
-    del shell
-    del welcometext
     exit()
 
 if __name__ == "__main__":

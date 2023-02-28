@@ -1,0 +1,11 @@
+var a
+var b
+var c
+
+inn a
+inn b
+
+vad a b
+cpy a c
+ios "The sum of the two numbers is: "
+iov c

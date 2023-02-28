@@ -212,6 +212,7 @@ def run(f):
     except FileNotFoundError:
         print(tn[404])
         return
+    code = ""
     for i in fi.readlines():
         code += i + "\n"
     return runbas(code)
