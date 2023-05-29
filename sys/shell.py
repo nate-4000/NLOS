@@ -128,7 +128,10 @@ def open(authuser):
             filesys.mkf(args)
         elif incomm.startswith("edit "):
             args = incomm.removeprefix("edit ")
-            editor.edit(args)
+            if filesys.cwd.endswith("sys/") or filesys.cwd.endswith("sys"):
+                print(tn["no"])
+            else:
+                editor.edit(args)
         elif incomm.startswith("run "):
             args = incomm.removeprefix("run ")
             runprg.run(args, os.getcwd())
